@@ -1,0 +1,7 @@
+CompileFlags:
+  CompilationDatabase: build/
+  Add:
+    - -std=gnu++17
+    - -I/opt/ros/jazzy/include
+    - -I/usr/include
+    - -I${PWD}/install/include
