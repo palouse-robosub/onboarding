@@ -1,3 +1,5 @@
+# This helps set up the devcontainer in VS Code
+
 FROM ubuntu:noble
 
 RUN apt update

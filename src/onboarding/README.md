@@ -1,0 +1,1 @@
+This package contains launch files and serves as a "metapackage" for other ROS packages, because it "depends" on all other packages.

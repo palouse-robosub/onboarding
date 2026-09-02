@@ -1,3 +1,5 @@
+# This file helps set up all the dependencies for running on your computer!
+
 {
   inputs = {
     nix-ros-overlay.url = "github:lopsided98/nix-ros-overlay/master";

@@ -1,5 +1,4 @@
-Please provide a brief description of the contents of this PR....
-
+<!-- replace this entire line with a brief description of the contents of this PR.... -->
 
 - [ ] I have a descriptive name for this PR (like "Torpedo Service")
 - [ ] I've updated the CODEOWNERS file with my username
