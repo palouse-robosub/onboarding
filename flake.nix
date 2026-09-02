@@ -54,6 +54,7 @@
                 ament-cmake-core # vectornav_msgs
                 ament-cmake-python
                 ament-lint-auto
+                python-cmake-module
                 
                 # launch
                 launch
