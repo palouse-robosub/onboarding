@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
     <include file="$(find-pkg-share onboarding_echo)/launch/all.xml" />
+
+    <!-- Add your own launch file below like so:
+    <include file="$(find-pkg-share onboarding_example)/launch/all.xml" /> -->
 </launch>

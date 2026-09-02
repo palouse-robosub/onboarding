@@ -12,6 +12,10 @@
   <exec_depend>onboarding_echo</exec_depend>
   <exec_depend>onboarding_msgs</exec_depend>
 
+  <!-- Add your own package below like so:
+  <exec_depend>onboarding_example</exec_depend> -->
+
+
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
 
