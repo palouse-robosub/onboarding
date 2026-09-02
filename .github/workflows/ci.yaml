@@ -103,10 +103,6 @@ jobs:
     steps:
       - name: Checkout onboarding
         uses: actions/checkout@v7
-        with:
-          fetch-depth: 2
-          submodules: recursive
-          token: ${{ secrets.SUBMODULE_PAT }}
 
       - name: Install Determinate Nix
         uses: DeterminateSystems/nix-installer-action@main
@@ -120,55 +116,8 @@ jobs:
       - name: Check Nix Flake
         uses: DeterminateSystems/flake-checker-action@main
 
-      - name: Restore Vendor
-        id: cache-vendor-restore
-        uses: actions/cache/restore@v6
-        with:
-          path: |
-            build/behaviortree_cpp/
-            build/behaviortree_ros2/
-            build/libwaterlinked/
-            build/nlohmann_json/
-            build/vectornav/
-            build/vectornav_msgs/
-            build/waterlinked_dvl_driver/
-            install/behaviortree_cpp/
-            install/behaviortree_ros2/
-            install/libwaterlinked/
-            install/nlohmann_json/
-            install/vectornav/
-            install/vectornav_msgs/
-            install/waterlinked_dvl_driver/
-          key: ${{ runner.os }}-vendor-${{ hashFiles('flake.lock', 'flake.nix', 'vendor/**') }}
-      
-      - name: Debug Cache Restore
-        continue-on-error: true
-        run: find build
-
       - name: Build and run tests
-        run: nix develop --accept-flake-config --command bash -c "./.github/workflows/diff_and_build.sh"
-
-      - name: Save Vendor
-        id: cache-vendor-save
-        uses: actions/cache/save@v6
-        with:
-          path: |
-            build/behaviortree_cpp/
-            build/behaviortree_ros2/
-            build/libwaterlinked/
-            build/nlohmann_json/
-            build/vectornav/
-            build/vectornav_msgs/
-            build/waterlinked_dvl_driver/
-            install/behaviortree_cpp/
-            install/behaviortree_ros2/
-            install/libwaterlinked/
-            install/nlohmann_json/
-            install/vectornav/
-            install/vectornav_msgs/
-            install/waterlinked_dvl_driver/
-            
-          key: ${{ runner.os }}-vendor-${{ hashFiles('flake.lock', 'flake.nix', 'vendor/**') }}
+        run: nix develop --accept-flake-config --command bash -c "./.github/workflows/build.sh"
 
       - name: C/C++ Lint
         uses: cpp-linter/cpp-linter-action@v2
