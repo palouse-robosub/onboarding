@@ -33,8 +33,9 @@ You can choose any messages from:
 3. Get ready to add changes:
     1. Create a new branch in the format `<your-name>/<what-you-are-adding>` (like `bob/add-bob-pkg`)
     2. Build the existing code by using `colcon build`
-    3. Run the existing code with `ros2 launch onboarding all.xml`
-    4. Make a copy of the `onboarding_example` package and name it `<your-name>_pkg`. Be sure to update all instances of the package name, even in files like `CMakeLists.txt`
+    3. Load your newly built ROS workspace with `source install/setup.bash`
+    4. Run the existing code with `ros2 launch onboarding all.xml`
+    5. Make a copy of the `onboarding_example` package and name it `<your-name>_pkg`. Be sure to update all instances of the package name, even in files like `CMakeLists.txt`
 4. Read the [ROS2 Jazzy Quickstart Tutorial](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html#write-the-publisher-node) and:
     1. Create a publisher node that publishes your topic of choice on a 0.5Hz timer
     2. Update `CMakeLists.txt` and `package.xml`
