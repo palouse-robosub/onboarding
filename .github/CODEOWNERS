@@ -1,7 +1,7 @@
-# add your file or folder / github username to the list below
-* cole-wilson
-src/onboarding_echo andy-sorge
-.clang-format ryden-handsaker
-Dockerfile andy-sorge
-flake.* andy-sorge
-.devcontainer andy-sorge
+# add your file or folder / @github_username to the list below
+* @cole-wilson
+src/onboarding_echo @andy-sorge
+.clang-format @ryden-handsaker
+Dockerfile @andy-sorge
+flake.* @andy-sorge
+.devcontainer @andy-sorge
