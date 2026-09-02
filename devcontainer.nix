@@ -5,7 +5,7 @@ let
   gid = "1000";
 in
 pkgs.dockerTools.buildLayeredImage {
-  name = "guppy-dev";
+  name = "onboarding-dev";
   tag = "latest";
 
   contents = with pkgs; [

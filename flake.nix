@@ -16,7 +16,7 @@
 	unstable = import nixpkgs-unstable { inherit system; };
       in {
         devShells.default = pkgs.mkShell {
-          name = "guppy_ros";
+          name = "onboarding_ros";
           packages = [
             # non ros
             
@@ -26,12 +26,8 @@
             pkgs.clang-tools
             
             # deps
-            pkgs.proxsuite
-
             (unstable.python3.withPackages (ps: with ps; [
-              pygame
               pip
-              pyside6
             ]))
 
             # extra
@@ -53,10 +49,6 @@
                 sensor-msgs
                 nav-msgs
       
-                # rqt
-                rqt
-                rqt-common-plugins
-                
                 # build
                 ament-cmake
                 ament-cmake-core # vectornav_msgs
@@ -67,24 +59,11 @@
                 launch
                 launch-ros
                 launch-xml
-                
-                # rviz
-                rviz2
-                
-                # deps
-                ros2-control
-                control-toolbox
-                ros-gz-interfaces # gncea_autonomy
-                python-cmake-module # vecornav_msgs
-                marine-acoustic-msgs # waterlinked_dvl_driver
-                ros-gz-sim # gncea_description
-                ros-gz-bridge # sim
-                joint-state-publisher # sim
               ];
             })
           ];
           # shellHook = ''
-          #   fastfetch -l ./.github/guppy.txt
+          #   fastfetch -l ./.github/onboarding.txt
           # '';
         };
       });

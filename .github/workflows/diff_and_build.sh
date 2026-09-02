@@ -8,7 +8,7 @@ CHANGED_FILES=$(git diff --name-only HEAD~1...HEAD)
 
 CHANGED_PKGS=$(for i in $CHANGED_FILES; do
     for j in $PKGS; do
-        if [[ $i == *$j* && $j != "guppy" ]]; then 
+        if [[ $i == *$j* && $j != "onboarding" ]]; then 
             printf "$j\n"
             break
         fi

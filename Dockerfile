@@ -14,4 +14,4 @@ RUN mkdir -p /etc/nix && \
 
 RUN echo 'eval "$(direnv hook bash)"' >> ~/.bashrcText File.txt
 
-RUN git config --global --add safe.directory /workspaces/guppy
+RUN git config --global --add safe.directory /workspaces/onboarding

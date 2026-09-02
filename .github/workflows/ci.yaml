@@ -76,7 +76,7 @@ jobs:
       outputs:
         code: ${{ steps.filter.outputs.code }}
       steps:
-        - name: Checkout guppy 
+        - name: Checkout onboarding 
           uses: actions/checkout@v7
 
         - name: Filter for code changes
@@ -101,7 +101,7 @@ jobs:
     if: needs.get_changes.outputs.code == 'true'
     runs-on: ubuntu-24.04
     steps:
-      - name: Checkout guppy
+      - name: Checkout onboarding
         uses: actions/checkout@v7
         with:
           fetch-depth: 2

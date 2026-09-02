@@ -1,0 +1,3 @@
+uint16 example_u16
+uint8 example_u8
+string example_string
