@@ -3,14 +3,14 @@
 #include <string>
 
 #include "rclcpp/rclcpp.hpp"
-#include "onboarding_msgs/msg/example.hpp"
+#include "onboarding_msgs/msg/adrian_message.hpp"
 
 using namespace std::chrono_literals;
 
 class AdrianPublisher : public rclcpp::Node
 {
     private:
-        rclcpp::Publisher<onboarding_msgs::msg::Example>::SharedPtr publisher_;
+        rclcpp::Publisher<onboarding_msgs::msg::AdrianMessage>::SharedPtr publisher_;
         rclcpp::TimerBase::SharedPtr timer_;
         uint16_t count_ = 0;
 
@@ -18,15 +18,14 @@ class AdrianPublisher : public rclcpp::Node
         AdrianPublisher() 
         : Node("AdrianPublisher")
         {
-            publisher_ = this->create_publisher<onboarding_msgs::msg::Example>("topic", 10);
+            publisher_ = this->create_publisher<onboarding_msgs::msg::AdrianMessage>("topic", 10);
             auto timer_callback = [this]() -> void 
             {
-                auto message = onboarding_msgs::msg::Example();
-                message.example_string = "Hello..." + std::to_string(count_);
-                message.example_u16 = count_++;
-                message.example_u8 = 8u;
+                auto message = onboarding_msgs::msg::AdrianMessage();
+                message.name = "Hello... World...";
+                message.amount = count_++;
 
-                RCLCPP_INFO(get_logger(), "Publishing: '%s'", message.example_string.c_str());
+                RCLCPP_INFO(get_logger(), "Publishing: '%s'", message.name.c_str());
                 publisher_->publish(message);
             };
             timer_ = create_wall_timer(500ms, timer_callback);
