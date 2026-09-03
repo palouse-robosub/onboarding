@@ -1,3 +1,7 @@
 # adrian_pkg
 
-explain about your nodes and topics here.
+## adrian_publisher
+- Publishes message type `AdrianMessage` twice a second to `adrian-topic`
+
+## adrian_subscriber
+- Listens to `adrian-topic` and calls the echo service
