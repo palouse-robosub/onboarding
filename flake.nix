@@ -50,6 +50,7 @@
                 geometry-msgs
                 sensor-msgs
                 nav-msgs
+                vision-msgs
       
                 # build
                 ament-cmake
