@@ -15,9 +15,6 @@ class TemperaturePublisher : public rclcpp::Node {
         auto timer_callback = [this]() -> void {
             auto message        = sensor_msgs::msg::Temperature();
             message.temperature = 200.0;
-            RCLCPP_INFO(
-                this->get_logger(), "Publishing: '%f'", message.temperature
-            );
             this->publisher_->publish(message);
         };
         timer_ = this->create_wall_timer(2000ms, timer_callback);

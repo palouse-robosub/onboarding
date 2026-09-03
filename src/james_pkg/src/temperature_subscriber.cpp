@@ -1,5 +1,6 @@
 // includes
 
+#include "onboarding_msgs/srv/echo_string.hpp"
 #include "rclcpp/rclcpp.hpp"
 #include "sensor_msgs/msg/temperature.hpp"
 
@@ -8,17 +9,24 @@ class TemperatureSubscriber : public rclcpp::Node {
     TemperatureSubscriber() : Node("temperature_subscriber") {
         auto topic_callback =
             [this](sensor_msgs::msg::Temperature::UniquePtr msg) -> void {
-            RCLCPP_INFO(this->get_logger(), "I heard: '%f'", msg->temperature);
+            auto request =
+                std::make_shared<onboarding_msgs::srv::EchoString::Request>();
+            request->data = "james figures " + std::to_string(msg->temperature)
+                          + " degrees isn't too hot";
+            client->async_send_request(request);
         };
         subscription = this->create_subscription<sensor_msgs::msg::Temperature>(
             "temperature", 10, topic_callback
         );
-
+        client = this->create_client<onboarding_msgs::srv::EchoString>(
+            "echo_string"
+        );
         // constructor
     };
 
   private:
     rclcpp::Subscription<sensor_msgs::msg::Temperature>::SharedPtr subscription;
+    rclcpp::Client<onboarding_msgs::srv::EchoString>::SharedPtr    client;
 };
 
 int main(int argc, char* argv[]) {
