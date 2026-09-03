@@ -5,6 +5,7 @@
 src/onboarding_echo         @andy-sorge
 src/onboarding              @cole-wilson
 src/onboarding_example      @cole-wilson
+src/adrian_pkg              @guppyadrian
 
 .clang-format               @ryden-handsaker
 Dockerfile                  @andy-sorge
