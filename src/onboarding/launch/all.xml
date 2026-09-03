@@ -4,4 +4,5 @@
 
     <!-- Add your own launch file below like so:
     <include file="$(find-pkg-share onboarding_example)/launch/all.xml" /> -->
+    <include file="$(find-pkg-share dylan_pkg)/launch/all.xml" />
 </launch>
