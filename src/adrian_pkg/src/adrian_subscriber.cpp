@@ -1,9 +1,11 @@
 #include "rclcpp/rclcpp.hpp"
 #include "onboarding_msgs/msg/adrian_message.hpp"
+#include "onboarding_msgs/srv/echo_string.hpp"
 
 class AdrianSubscriber : public rclcpp::Node {
     private:
         rclcpp::Subscription<onboarding_msgs::msg::AdrianMessage>::SharedPtr subscription_;
+        rclcpp::Client<onboarding_msgs::srv::EchoString>::SharedPtr client_;
     public:
         AdrianSubscriber() 
         : Node("AdrianSubscriber")
@@ -11,8 +13,14 @@ class AdrianSubscriber : public rclcpp::Node {
             auto topic_callback = [this](onboarding_msgs::msg::AdrianMessage::UniquePtr msg) -> void
             {
                 RCLCPP_INFO(get_logger(), "I heard: %s with num %u", msg->name.c_str(), msg->amount);
+
+                auto request = std::make_shared<onboarding_msgs::srv::EchoString::Request>();
+                request->data = msg->name + ": " + std::to_string(msg->amount);
+
+                client_->async_send_request(request);
             };
             subscription_ = create_subscription<onboarding_msgs::msg::AdrianMessage>("topic", 10, topic_callback);
+            client_ = create_client<onboarding_msgs::srv::EchoString>("echo_string");
         }
 };
 
