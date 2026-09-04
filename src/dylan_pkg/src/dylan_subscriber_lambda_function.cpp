@@ -16,8 +16,7 @@ class MinimalSubscriber : public rclcpp::Node {
     }
 
   private:
-    rclcpp::Client
-        < rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
+    rclcpp::Subscription<std_msgs::msg::String>::SharedPtr subscription_;
 };
 
 int main(int argc, char* argv[]) {
