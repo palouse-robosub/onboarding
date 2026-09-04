@@ -33,15 +33,16 @@ You can choose any messages from:
 3. Get ready to add changes:
     1. Create a new branch in the format `<your-name>/<what-you-are-adding>` (like `bob/add-bob-pkg`)
     2. Build the existing code by using `colcon build`
-    3. Run the existing code with `ros2 launch onboarding all.xml`
-    4. Make a copy of the `onboarding_example` package and name it `<your-name>_pkg`. Be sure to update all instances of the package name, even in files like `CMakeLists.txt`
-4. Read the [ROS2 Jazzy Quickstart Tutorial](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html#write-the-publisher-node) and:
-    1. Create a publisher node that publishes your topic of choice on a 0.5Hz timer
-    2. Update `CMakeLists.txt` and `package.xml`
-    3. Create a subscriber node that summarizes the topic of your choice into a string of some sort
-    4. Update `CMakeLists.txt` and `package.xml`
-    5. Update your subscriber node to call the `/echo_string` service with your description string and name
-    6. Update your launch file, and the one in `src/onboarding/`
+    3. Load your newly built ROS workspace with `source install/setup.bash`
+    4. Run the existing code with `ros2 launch onboarding all.xml`
+4. Make a copy of the `onboarding_example` package and name it `<your-name>_pkg`. Be sure to update all instances of the package name, even in files like `CMakeLists.txt`
+    1. Pull up [ROS2 Jazzy Quickstart Tutorial](https://docs.ros.org/en/jazzy/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Cpp-Publisher-And-Subscriber.html#write-the-publisher-node) and read it while you:
+    2. Create a publisher node that publishes your topic of choice on a 0.5Hz timer
+    3. Update `CMakeLists.txt` and `package.xml`
+    4. Create a subscriber node that summarizes the topic of your choice into a string of some sort
+    5. Update `CMakeLists.txt` and `package.xml`
+    6. Update your subscriber node to call the `/echo_string` service with your description string and name
+    7. Update your launch file, and the one in `src/onboarding/`
 5. Get ready to merge:
     1. Make sure your code is formatted properly by running `./util/format` in your terminal
     2. Build and run your code using `colcon ...` and `ros2 ...`
