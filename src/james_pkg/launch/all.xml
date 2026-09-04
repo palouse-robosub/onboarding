@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <node pkg="james_pkg" exec="temperature_publisher"/>
+    <node pkg="james_pkg" exec="temperature_subscriber"/>
+</launch>
