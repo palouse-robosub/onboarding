@@ -4,7 +4,6 @@
 
 #include "onboarding_msgs/msg/oliver_double.hpp"
 #include "rclcpp/rclcpp.hpp"
-#include "std_msgs/msg/string.hpp"
 
 using namespace std::chrono_literals;
 

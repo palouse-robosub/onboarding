@@ -3,7 +3,6 @@
 #include "onboarding_msgs/msg/oliver_double.hpp"
 #include "onboarding_msgs/srv/echo_string.hpp"
 #include "rclcpp/rclcpp.hpp"
-#include "std_msgs/msg/string.hpp"
 
 class OliverSubscriber : public rclcpp::Node {
   public:

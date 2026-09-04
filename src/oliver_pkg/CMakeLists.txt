@@ -7,18 +7,14 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-# uncomment the following section in order to fill in
-# further dependencies manually.
-# find_package(<dependency> REQUIRED)
 
 find_package(onboarding_msgs REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(std_msgs REQUIRED)
 
 add_executable(oliver_publisher src/oliver_publisher.cpp)
 add_executable(oliver_subscriber src/oliver_subscriber.cpp)
-ament_target_dependencies(oliver_publisher rclcpp onboarding_msgs std_msgs)
-ament_target_dependencies(oliver_subscriber rclcpp onboarding_msgs std_msgs)
+ament_target_dependencies(oliver_publisher rclcpp onboarding_msgs)
+ament_target_dependencies(oliver_subscriber rclcpp onboarding_msgs)
 
 install(TARGETS
   oliver_publisher
