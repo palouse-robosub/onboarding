@@ -5,6 +5,7 @@
 src/onboarding_echo         @andy-sorge
 src/onboarding              @cole-wilson
 src/onboarding_example      @cole-wilson
+src/oliver_pkg              @GoldenGuy1000
 src/james_pkg               @jhaddixcodes
 
 .clang-format               @ryden-handsaker
