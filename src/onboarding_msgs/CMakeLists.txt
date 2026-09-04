@@ -13,6 +13,7 @@ find_package(rosidl_default_generators REQUIRED)
 rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/EchoString.srv"
   "msg/Example.msg"
+  "msg/OliverDouble.msg"
   
   DEPENDENCIES builtin_interfaces
 )
