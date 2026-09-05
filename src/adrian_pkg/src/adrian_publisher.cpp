@@ -18,17 +18,17 @@ class AdrianPublisher : public rclcpp::Node {
     AdrianPublisher() : Node("AdrianPublisher") {
         publisher_ =
             this->create_publisher<onboarding_msgs::msg::AdrianMessage>(
-                "adrian-topic", 10
+                "adrian_topic", 10
             );
         auto timer_callback = [this]() -> void {
             auto message   = onboarding_msgs::msg::AdrianMessage();
-            message.name   = "Hello... World...";
+            message.name   = "Adrian's tiki wa Awesome Message";
             message.amount = count_++;
 
-            RCLCPP_INFO(get_logger(), "Publishing: '%s'", message.name.c_str());
+            //RCLCPP_INFO(get_logger(), "Publishing: '%s'", message.name.c_str());
             publisher_->publish(message);
         };
-        timer_ = create_wall_timer(500ms, timer_callback);
+        timer_ = create_wall_timer(2000ms, timer_callback);
     }
 };
 
