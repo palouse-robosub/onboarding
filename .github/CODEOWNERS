@@ -5,12 +5,9 @@
 src/onboarding_echo         @andy-sorge
 src/onboarding              @cole-wilson
 src/onboarding_example      @cole-wilson
-<<<<<<< HEAD
 src/adrian_pkg              @guppyadrian
-=======
 src/oliver_pkg              @GoldenGuy1000
 src/james_pkg               @jhaddixcodes
->>>>>>> main
 
 .clang-format               @ryden-handsaker
 Dockerfile                  @andy-sorge
