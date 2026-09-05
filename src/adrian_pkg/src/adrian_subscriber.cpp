@@ -12,7 +12,6 @@ class AdrianSubscriber : public rclcpp::Node {
     AdrianSubscriber() : Node("AdrianSubscriber") {
         auto topic_callback =
             [this](onboarding_msgs::msg::AdrianMessage::UniquePtr msg) -> void {
-
             auto request =
                 std::make_shared<onboarding_msgs::srv::EchoString::Request>();
             request->data = msg->name + ": " + std::to_string(msg->amount);
