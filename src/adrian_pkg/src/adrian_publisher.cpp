@@ -25,7 +25,8 @@ class AdrianPublisher : public rclcpp::Node {
             message.name   = "Adrian's tiki wa Awesome Message";
             message.amount = count_++;
 
-            //RCLCPP_INFO(get_logger(), "Publishing: '%s'", message.name.c_str());
+            // RCLCPP_INFO(get_logger(), "Publishing: '%s'",
+            // message.name.c_str());
             publisher_->publish(message);
         };
         timer_ = create_wall_timer(2000ms, timer_callback);
