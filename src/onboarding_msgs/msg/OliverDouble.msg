@@ -1,0 +1,2 @@
+float64 my_glorious_double
+float64 my_second_glorious_double

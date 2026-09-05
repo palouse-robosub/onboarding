@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <node pkg="oliver_pkg" exec="oliver_publisher"/>
+    <node pkg="oliver_pkg" exec="oliver_subscriber"/>
+</launch>

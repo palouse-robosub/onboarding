@@ -6,4 +6,6 @@
     <include file="$(find-pkg-share onboarding_example)/launch/all.xml" /> -->
 
     <include file="$(find-pkg-share adrian_pkg)/launch/all.xml" />
+    <include file="$(find-pkg-share oliver_pkg)/launch/all.xml" />
+    <include file="$(find-pkg-share james_pkg)/launch/all.xml" />
 </launch>
