@@ -1,3 +1,3 @@
 # ben_pkg
 
-explain about your nodes and topics here.
+Uses a publisher and subscriber to transfer a uint32.
