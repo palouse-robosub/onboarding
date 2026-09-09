@@ -8,6 +8,7 @@ src/onboarding_example      @cole-wilson
 src/adrian_pkg              @guppyadrian
 src/oliver_pkg              @GoldenGuy1000
 src/james_pkg               @jhaddixcodes
+src/cole_pkg                @cole-wilson
 
 .clang-format               @ryden-handsaker
 Dockerfile                  @andy-sorge
