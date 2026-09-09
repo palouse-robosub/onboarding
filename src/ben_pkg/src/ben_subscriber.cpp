@@ -10,15 +10,14 @@ class BenSubscriber : public rclcpp::Node {
         subscription_;
 
     BenSubscriber() : Node("ben_subscriber") {
-            // creating a service client within the subscriber node which we call "echo_string"
-            client =
-                this->create_client<onboarding_msgs::srv::EchoString>(
-                    "echo_string"
-                );
+        // creating a service client within the subscriber node which we call
+        // "echo_string"
+        client = this->create_client<onboarding_msgs::srv::EchoString>(
+            "echo_string"
+        );
 
         auto topic_callback =
             [this](onboarding_msgs::msg::BenMessage::UniquePtr msg) -> void {
-
             // Next, create a request
             auto message =
                 std::make_shared<onboarding_msgs::srv::EchoString::Request>();
@@ -29,7 +28,8 @@ class BenSubscriber : public rclcpp::Node {
             auto result = client->async_send_request(message);
 
             // Finally, await the result
-            //rclcpp::spin_until_future_complete(this->shared_from_this(), result);
+            // rclcpp::spin_until_future_complete(this->shared_from_this(),
+            // result);
         };
         subscription_ =
             this->create_subscription<onboarding_msgs::msg::BenMessage>(
