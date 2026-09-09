@@ -9,7 +9,7 @@
                 "/usr/local/include/**"
             ],
             "defines": [],
-            "compilerPath": "/nix/store/lx4f4lvm5hrbxbils30ssjal1jz9yxgh-gcc-wrapper-15.2.0/bin/gcc",
+            "compilerPath": "/usr/bin/gcc",
             "cStandard": "c17",
             "cppStandard": "gnu++17",
             "intelliSenseMode": "linux-gcc-x64",
