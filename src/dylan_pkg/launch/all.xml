@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
-    <node pkg="cpp_pubsub" exec="talker"/>
-    <node pkg="cpp_pubsub" exec="listener"/>
+    <node pkg="dylan_pkg" exec="talker"/>
+    <node pkg="dylan_pkg" exec="listener"/>
 </launch>
