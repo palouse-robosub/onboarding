@@ -10,30 +10,26 @@ class BenSubscriber : public rclcpp::Node {
         subscription_;
 
     BenSubscriber() : Node("ben_subscriber") {
-        auto topic_callback =
-            [this](onboarding_msgs::msg::BenMessage::UniquePtr msg) -> void {
-            // making a node to create a client in?
-            std::shared_ptr<rclcpp::Node> node =
-                rclcpp::Node::make_shared("ben_echo_string_client");
-
-            // creating a service client within the node that was just created,
-            // which we call "echo_string"
-            rclcpp::Client<onboarding_msgs::srv::EchoString>::SharedPtr client =
-                node->create_client<onboarding_msgs::srv::EchoString>(
+            // creating a service client within the subscriber node which we call "echo_string"
+            client =
+                this->create_client<onboarding_msgs::srv::EchoString>(
                     "echo_string"
                 );
+
+        auto topic_callback =
+            [this](onboarding_msgs::msg::BenMessage::UniquePtr msg) -> void {
 
             // Next, create a request
             auto message =
                 std::make_shared<onboarding_msgs::srv::EchoString::Request>();
             message->data =
-                "(Ben) What is in message: " + std::to_string(msg->data);
+                "Ben's uint32 is counting up: " + std::to_string(msg->data);
 
             // Next, send the request
             auto result = client->async_send_request(message);
 
             // Finally, await the result
-            rclcpp::spin_until_future_complete(node, result);
+            //rclcpp::spin_until_future_complete(this->shared_from_this(), result);
         };
         subscription_ =
             this->create_subscription<onboarding_msgs::msg::BenMessage>(
@@ -42,6 +38,7 @@ class BenSubscriber : public rclcpp::Node {
     }
 
   private:
+    rclcpp::Client<onboarding_msgs::srv::EchoString>::SharedPtr client;
 };
 
 int main(int argc, char* argv[]) {
