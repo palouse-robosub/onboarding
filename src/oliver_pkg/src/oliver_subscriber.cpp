@@ -7,10 +7,8 @@
 class OliverSubscriber : public rclcpp::Node {
   public:
     OliverSubscriber() : Node("oliver_subscriber") {
-        std::shared_ptr<rclcpp::Node> node =
-            rclcpp::Node::make_shared("oliver_onboarding_echo_client");
         rclcpp::Client<onboarding_msgs::srv::EchoString>::SharedPtr client =
-            node->create_client<onboarding_msgs::srv::EchoString>(
+            this->create_client<onboarding_msgs::srv::EchoString>(
                 "echo_string"
             );
         auto topic_callback =
