@@ -10,8 +10,7 @@ class BenSubscriber : public rclcpp::Node {
         subscription_;
 
     BenSubscriber() : Node("ben_subscriber") {
-        // creating a service client within the subscriber node which we call
-        // "echo_string"
+        // creating a service client within the subscriber node which we call "echo_string"
         client = this->create_client<onboarding_msgs::srv::EchoString>(
             "echo_string"
         );
@@ -27,9 +26,7 @@ class BenSubscriber : public rclcpp::Node {
             // Next, send the request
             auto result = client->async_send_request(message);
 
-            // Finally, await the result
-            // rclcpp::spin_until_future_complete(this->shared_from_this(),
-            // result);
+            // We do not use spin_until_future_complete here because because main spun the node already
         };
         subscription_ =
             this->create_subscription<onboarding_msgs::msg::BenMessage>(

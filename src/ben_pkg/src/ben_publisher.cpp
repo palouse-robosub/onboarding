@@ -7,10 +7,6 @@
 
 using namespace std::chrono_literals;
 
-/* This example creates a subclass of Node and uses a fancy C++11 lambda
- * function to shorten the callback syntax, at the expense of making the
- * code somewhat more difficult to understand at first glance. */
-
 class BenPublisher : public rclcpp::Node {
   public:
     size_t count_;
