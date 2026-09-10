@@ -8,9 +8,16 @@ class AtmosphericPressureSubscriber : public rclcpp::Node {
     AtmosphericPressureSubscriber() : Node("AtmosphericPressure_Subscriber") {
         auto topic_callback =
             [this](sensor_msgs::msg::FluidPressure::UniquePtr msg) -> void {
-                RCLCPP_INFO(this->get_logger(), "Ziang: current atmospheric pressure is %f pascals at Pullman Regional Airport", msg->fluid_pressure);
-            };
-        subscription_ = this->create_subscription<sensor_msgs::msg::FluidPressure>("topic", 10, topic_callback);
+            RCLCPP_INFO(
+                this->get_logger(),
+                "Ziang: current atmospheric pressure is %f pascals at Pullman Regional Airport",
+                msg->fluid_pressure
+            );
+        };
+        subscription_ =
+            this->create_subscription<sensor_msgs::msg::FluidPressure>(
+                "topic", 10, topic_callback
+            );
     }
 
   private:
