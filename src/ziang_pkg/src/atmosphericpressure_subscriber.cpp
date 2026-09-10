@@ -21,7 +21,8 @@ class AtmosphericPressureSubscriber : public rclcpp::Node {
     }
 
   private:
-    rclcpp::Subscription<sensor_msgs::msg::FluidPressure>::SharedPtr subscription_;
+    rclcpp::Subscription<sensor_msgs::msg::FluidPressure>::SharedPtr
+        subscription_;
 };
 
 
