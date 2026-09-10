@@ -27,14 +27,18 @@ class AtmosphericPressurePublisher : public rclcpp::Node {
         CURL *curl;
         CURLcode res;
         std::string responseString;
-        curl= curl_easy_init();
-        if(curl){
-            curl_easy_setopt(curl,CURLOPT_URL,"https://aviationweather.gov/api/data/metar?ids=KPUW&format=raw&taf=false&hours=0");
-            curl_easy_setopt(curl,CURLOPT_WRITEFUNCTION,WriteCallback);
-            curl_easy_setopt(curl,CURLOPT_WRITEDATA,&responseString);
-            res =curl_easy_perform(curl);
-            if(res!=CURLE_OK){
-                std::cerr<<"Curl error: "<<curl_easy_strerror(res) <<std::endl;
+        curl = curl_easy_init();
+        if (curl) {
+            curl_easy_setopt(
+                curl, CURLOPT_URL,
+                "https://aviationweather.gov/api/data/metar?ids=KPUW&format=raw&taf=false&hours=0"
+            );
+            curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
+            curl_easy_setopt(curl, CURLOPT_WRITEDATA, &responseString);
+            res = curl_easy_perform(curl);
+            if (res != CURLE_OK) {
+                std::cerr << "Curl error: " << curl_easy_strerror(res)
+                          << std::endl;
             }
             curl_easy_cleanup(curl);
         }
