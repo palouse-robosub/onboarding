@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+    <node pkg="gavin_pkg" exec="gavin_publisher"/>
+    <node pkg="gavin_pkg" exec="gavin_subscriber"/>
+</launch>
