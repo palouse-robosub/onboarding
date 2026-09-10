@@ -26,6 +26,7 @@
             pkgs.colcon
             pkgs.cmake
             pkgs.clang-tools
+            pkgs.curl
             
             # deps
             (unstable.python3.withPackages (ps: with ps; [
