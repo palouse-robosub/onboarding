@@ -9,6 +9,7 @@ src/adrian_pkg              @guppyadrian
 src/oliver_pkg              @GoldenGuy1000
 src/james_pkg               @jhaddixcodes
 src/cole_pkg                @cole-wilson
+src/ziang_pkg               @zichen04
 
 .clang-format               @ryden-handsaker
 Dockerfile                  @andy-sorge
