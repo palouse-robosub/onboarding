@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 3.10)
-project(onboarding_msgs)
+cmake_minimum_required(VERSION 3.8)
+project(cole_pkg)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -7,18 +7,27 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+# uncomment the following section in order to fill in
+# further dependencies manually.
+# find_package(<dependency> REQUIRED)
 
-find_package(rosidl_default_generators REQUIRED)
+find_package(onboarding_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(rclcpp REQUIRED)
 
-rosidl_generate_interfaces(${PROJECT_NAME}
-  "srv/EchoString.srv"
-  "msg/Example.msg"
-  "msg/AdrianMessage.msg"
-  "msg/OliverDouble.msg"
-  "msg/BenMessage.msg"
-  
-  DEPENDENCIES builtin_interfaces
-)
+add_executable(cole_publisher src/cole_publisher.cpp)
+add_executable(cole_subscriber src/cole_subscriber.cpp)
+ament_target_dependencies(cole_publisher rclcpp onboarding_msgs sensor_msgs )
+ament_target_dependencies(cole_subscriber rclcpp onboarding_msgs sensor_msgs )
+
+install(TARGETS
+  cole_publisher
+  cole_subscriber
+  DESTINATION lib/${PROJECT_NAME})
+
+install(DIRECTORY
+  launch
+  DESTINATION share/${PROJECT_NAME})
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
