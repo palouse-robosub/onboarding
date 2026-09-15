@@ -13,7 +13,7 @@ find_package(ament_cmake REQUIRED)
 
 find_package(onboarding_msgs REQUIRED)
 find_package(rclcpp REQUIRED)
-find_package(sensor_msgs)
+find_package(sensor_msgs REQUIRED)
 find_package(CURL REQUIRED)
 
 add_executable(atmosphericpressure_publisher src/atmosphericpressure_publisher.cpp)

@@ -3,8 +3,8 @@
 <package format="3">
   <name>ziang_pkg</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="your_email@email.com">root</maintainer>
+  <description>Publisher and Subscriber for Atmospheric Pressure at PUW airport</description>
+  <maintainer email="zichen@gmail.com">root</maintainer>
   <license>TODO: License declaration</license>
 
   <depend>onboarding_msgs</depend>

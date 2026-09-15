@@ -9,4 +9,6 @@
     <include file="$(find-pkg-share oliver_pkg)/launch/all.xml" />
     <include file="$(find-pkg-share james_pkg)/launch/all.xml" />
     <include file="$(find-pkg-share cole_pkg)/launch/all.xml" />
+    <include file="$(find-pkg-share ziang_pkg)/launch/all.xml" />
+
 </launch>

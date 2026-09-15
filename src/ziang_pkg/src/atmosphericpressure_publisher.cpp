@@ -18,7 +18,7 @@ class AtmosphericPressurePublisher : public rclcpp::Node {
         void* contents, size_t size, size_t nmemb, std::string* response
     ) {
         size_t totalSize = size * nmemb;
-        response->append((char*)contents, totalSize);
+        response->append(static_cast<char*>(contents), totalSize);
         return totalSize;
     }
 
@@ -38,8 +38,7 @@ class AtmosphericPressurePublisher : public rclcpp::Node {
             curl_easy_setopt(curl, CURLOPT_WRITEDATA, &responseString);
             res = curl_easy_perform(curl);
             if (res != CURLE_OK) {
-                std::cerr << "Curl error: " << curl_easy_strerror(res)
-                          << std::endl;
+                RCLCPP_ERROR(this->get_logger(), "Curl error: %s", curl_easy_strerror(res));
             }
             curl_easy_cleanup(curl);
         }
@@ -70,28 +69,24 @@ class AtmosphericPressurePublisher : public rclcpp::Node {
             std::smatch matches;
 
             if (std::regex_search(METAR, matches, pattern)) {
-                std::string my_string_var = matches[1].str();
                 aPressure                 = std::stoi(matches[1].str());
             }
 
             hour = currentHour;
         }
 
-        return (double)aPressure * 33.863889;    // return value in Pascals
+        return aPressure * 33.863889;    // return value in Pascals
     }
 
     AtmosphericPressurePublisher() : Node("pressure_publisher") {
         publisher_ = this->create_publisher<sensor_msgs::msg::FluidPressure>(
-            "topic", 10
+            "ziang_topic", 10
         );
 
         auto timer_callback = [this]() -> void {
             auto message           = sensor_msgs::msg::FluidPressure();
             message.fluid_pressure = GetAtmosphericPressure();
             message.variance       = 0.0;    // no variance known
-            RCLCPP_INFO(
-                this->get_logger(), "Pressure: %f", message.fluid_pressure
-            );
             this->publisher_->publish(message);
         };
         timer_ = this->create_wall_timer(2000ms, timer_callback);
