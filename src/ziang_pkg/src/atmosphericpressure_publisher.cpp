@@ -38,7 +38,10 @@ class AtmosphericPressurePublisher : public rclcpp::Node {
             curl_easy_setopt(curl, CURLOPT_WRITEDATA, &responseString);
             res = curl_easy_perform(curl);
             if (res != CURLE_OK) {
-                RCLCPP_ERROR(this->get_logger(), "Curl error: %s", curl_easy_strerror(res));
+                RCLCPP_ERROR(
+                    this->get_logger(), "Curl error: %s",
+                    curl_easy_strerror(res)
+                );
             }
             curl_easy_cleanup(curl);
         }
@@ -68,9 +71,8 @@ class AtmosphericPressurePublisher : public rclcpp::Node {
             std::regex  pattern(R"( A(\d{4}))");
             std::smatch matches;
 
-            if (std::regex_search(METAR, matches, pattern)) {
-                aPressure                 = std::stoi(matches[1].str());
-            }
+            if (std::regex_search(METAR, matches, pattern))
+                aPressure = std::stoi(matches[1].str());
 
             hour = currentHour;
         }
