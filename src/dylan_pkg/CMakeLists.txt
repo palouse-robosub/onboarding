@@ -14,15 +14,15 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(onboarding_msgs REQUIRED)
-add_executable(talker src/dylan_publisher.cpp)
-ament_target_dependencies(talker rclcpp std_msgs)
+add_executable(dylan_talker src/dylan_publisher.cpp)
+ament_target_dependencies(dylan_talker rclcpp std_msgs)
 
-add_executable(listener src/dylan_subscriber.cpp)
-ament_target_dependencies(listener rclcpp std_msgs onboarding_msgs)
+add_executable(dylan_listener src/dylan_subscriber.cpp)
+ament_target_dependencies(dylan_listener rclcpp std_msgs onboarding_msgs)
 
 install(TARGETS
-  talker
-  listener
+  dylan_talker
+  dylan_listener
   DESTINATION lib/${PROJECT_NAME})
 install(DIRECTORY
   launch
