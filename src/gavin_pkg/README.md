@@ -1,3 +1,2 @@
-# onboarding_example
-
-explain about your nodes and topics here.
+# gavin_pkg
+publishes boolean
