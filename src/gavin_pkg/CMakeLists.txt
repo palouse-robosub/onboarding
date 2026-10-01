@@ -17,17 +17,12 @@ find_package(onboarding_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(rclcpp REQUIRED)
 
-add_executable(talker src/publisher_lambda_function.cpp)
+
 add_executable(gavin_publisher src/gavin_publisher.cpp)
 add_executable(gavin_subscriber src/gavin_subscriber.cpp)
-ament_target_dependencies(talker rlcpp std_msgs)
+
 ament_target_dependencies(gavin_publisher rclcpp onboarding_msgs std_msgs)
 ament_target_dependencies(gavin_subscriber rclcpp onboarding_msgs std_msgs)
-
-intstall(TARGETS
-  talker
-  listener
-  DESTINATION lib/${PROJECT_NAME})
 
 install(TARGETS
   gavin_publisher
